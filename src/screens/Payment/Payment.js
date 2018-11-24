@@ -7,6 +7,10 @@ import {View,
 import CustomHeader from '../../components/Header/CustomHeader';
  
 class Payment extends Component{
+    static navigationOptions = ({
+        title: "",
+
+    })
 constructor(props){
     super(props);
 
@@ -17,7 +21,7 @@ constructor(props){
                 <CustomHeader 
                     title="My Subject"
                     openDrawer={() => this.props.navigation.openDrawer()}
-                    iconName="md-notifications"
+                    iconName="card"
 
                 /> 
                 <Text> Payment </Text>

@@ -20,6 +20,7 @@ import {
     Right
   } from "native-base";
 import DrawerNavigation from '../../navigations/DrawerNavigation';
+import colors from '../../styles/colors';
  
 class CustomHeader extends Component{
     constructor(props){
@@ -30,7 +31,8 @@ class CustomHeader extends Component{
          const { title, openDrawer, iconName } = this.props;
         return(
             <View> 
-                 <Header backgroundColor='red'>
+                 <Header  style={{ backgroundColor: colors.greenPrimary }}
+          androidStatusBarColor={colors.greenDark}>
                     <Left>
                         {/* <Button
                             transparent

@@ -7,6 +7,10 @@ import {View,
 import CustomHeader from '../../components/Header/CustomHeader';
  
 class Notice extends Component{
+    static navigationOptions = ({
+        title: "",
+
+    })
 constructor(props){
     super(props);
 

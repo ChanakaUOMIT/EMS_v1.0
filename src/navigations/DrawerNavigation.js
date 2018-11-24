@@ -8,10 +8,10 @@ import { Right } from 'native-base';
 // import Profile from './Profile'; //Stack Nav
 
 export default createDrawerNavigator({
-  Settings: {
+  Home: {
     screen: TabNavigation, 
     navigationOptions: {
-      drawerLabel: 'Settings',
+      drawerLabel: 'Home',
       drawerIcon: ({ tintColor }) => <Icon name="cog" size={17} />,
     }
   },

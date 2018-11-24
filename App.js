@@ -11,6 +11,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import DrawerNavigation from './src/navigations/DrawerNavigation';
 import LandingTemplate from './src/screens/Template/LandingTemplate';
+import Login from './src/authScreen/Login/Login';
 
 export default class App extends Component{
   render() {
@@ -25,6 +26,10 @@ export default class App extends Component{
 }
 
 const AppStackNavigator = createStackNavigator({
+  // Login:{
+  //   screen:Login
+  // },
+
   DrawerNavigation:{
     screen: DrawerNavigation
   },

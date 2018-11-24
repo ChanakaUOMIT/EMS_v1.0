@@ -7,6 +7,10 @@ import {View,
 import CustomHeader from '../../components/Header/CustomHeader';
  
 class Location extends Component{
+    static navigationOptions = ({
+        title: "",
+
+    })
 constructor(props){
     super(props);
 
@@ -15,9 +19,9 @@ constructor(props){
         return(
             <View>
                 <CustomHeader 
-                    title="My Subject"
+                    title="Location"
                     openDrawer={() => this.props.navigation.openDrawer()}
-                    iconName="md-notifications"
+                    iconName="locate"
 
                 /> 
                 <Text> Location </Text>
