@@ -20,46 +20,24 @@ import {
   } from "native-base";
 // import {Header} from 'react-native-elements'
 import Styles from '../../styles';
+import CustomHeader from '../../components/Header/CustomHeader';
 // import Icon from 'react-native-vector-icons/FontAwesome5';
  
 class MySubject extends Component{
 
-    static navigationOptions = ({ navigation }) => ({
-        title: "CPU",
-        headerLeft: (
-            <TouchableOpacity
-                style={Styles.headerButton}
-                onPress={() => navigation.openDrawer()}>
-                <Icon name="bars" size={20} />
-            </TouchableOpacity>
-        ),
+    static navigationOptions = ({
+        title: "My Subject",
     })
 
      render(){
         return(
             <View>
-                {/* <Header
-                    leftComponent={{ icon: 'menu', color: '#fff' }}
-                    centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'home', color: '#fff' }}
-                />  */}
-                <Header>
-                    <Left>
-                        <Button
-                        transparent
-                        onPress={() => this.props.navigation.navigate("DrawerOpen")}
-                        onPress={() => this.props.navigation.openDrawer()}
-                        // onPress={() => navigation.openDrawer()}>
+                <CustomHeader 
+                    title="My Subject"
+                    openDrawer={() => this.props.navigation.openDrawer()}
+                    iconName="md-notifications"
 
-                        >
-                        <Icon name="menu" />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>HomeScreen</Title>
-                    </Body>
-                    <Right />
-                </Header>
+                />
                 <View style={styles.container}> 
                     <Text> MySubject vg </Text>
                 </View>

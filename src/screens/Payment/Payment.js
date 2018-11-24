@@ -4,6 +4,7 @@ import {View,
     StyleSheet,
     TouchableOpacity,
 } from 'react-native';
+import CustomHeader from '../../components/Header/CustomHeader';
  
 class Payment extends Component{
 constructor(props){
@@ -12,7 +13,13 @@ constructor(props){
 } 
      render(){
         return(
-            <View style={styles.container}> 
+            <View> 
+                <CustomHeader 
+                    title="My Subject"
+                    openDrawer={() => this.props.navigation.openDrawer()}
+                    iconName="md-notifications"
+
+                /> 
                 <Text> Payment </Text>
              </View>
          )

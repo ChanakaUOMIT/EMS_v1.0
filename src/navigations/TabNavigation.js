@@ -27,7 +27,18 @@ const TabNavigation = createMaterialTopTabNavigator({
     }
 
 },{
-    tabBarPosition:'bottom'
+    tabBarPosition:'bottom',
+    tabBarOptions: {
+        // labelStyle: {
+        //   fontSize: 12,
+        // },
+        // tabStyle: {
+        //   width: 100,
+        // },
+        style: {
+          backgroundColor: '#0d47a1',
+        },
+      }
 });
 
 export default createStackNavigator({ TabNavigation }, {headerMode:"none"});

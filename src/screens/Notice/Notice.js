@@ -4,15 +4,27 @@ import {View,
     StyleSheet,
     TouchableOpacity,
 } from 'react-native';
+import CustomHeader from '../../components/Header/CustomHeader';
  
 class Notice extends Component{
 constructor(props){
     super(props);
 
 } 
+    // openDrawer(){
+    //     onPress={() => this.props.navigation.openDrawer()}
+
+    // }
+
      render(){
         return(
-            <View style={styles.container}> 
+            <View> 
+                <CustomHeader 
+                    title="Notice"
+                    openDrawer={() => this.props.navigation.openDrawer()}
+                    iconName="md-notifications"
+
+                />
                 <Text> Notice </Text>
              </View>
          )

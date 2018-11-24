@@ -8,16 +8,35 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import DrawerNavigation from './src/navigations/DrawerNavigation';
+import LandingTemplate from './src/screens/Template/LandingTemplate';
 
 export default class App extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-      </View>
+      // <View>
+      //   <DrawerNavigation />
+      // </View>
+      <AppStackNavigator />
+
     );
   }
 }
+
+const AppStackNavigator = createStackNavigator({
+  DrawerNavigation:{
+    screen: DrawerNavigation
+  },
+
+  // LandingTemplate:{
+  //   screen:LandingTemplate
+  // }
+
+},
+    navigationOptions={
+      headerMode:'none'
+})
 
 const styles = StyleSheet.create({
   container: {

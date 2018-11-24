@@ -3,6 +3,7 @@ import { createDrawerNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import TabNavigation from './TabNavigation';
 import Profile from '../screens/Profile/Profile'
+import { Right } from 'native-base';
 // import Settings from './Settings';  //Tab Nav
 // import Profile from './Profile'; //Stack Nav
 
@@ -21,4 +22,7 @@ export default createDrawerNavigator({
       drawerIcon: ({ tintColor }) => <Icon name="user-circle" size={17} />,
     }
   },
+},
+{
+  drawerPosition :"right"
 });  
