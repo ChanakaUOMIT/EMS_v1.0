@@ -75,6 +75,7 @@ const TabNavigation = createMaterialTopTabNavigator({
 
 },{
     tabBarPosition:'bottom',
+    // initialRouteName:'Notice',
     animationEnabled:true,
     tabBarOptions: {
         showIcon:true,

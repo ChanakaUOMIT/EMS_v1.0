@@ -3,8 +3,10 @@ import {View,
     Text,
     StyleSheet,
     TouchableOpacity,
+    ScrollView
 } from 'react-native';
 import CustomHeader from '../../components/Header/CustomHeader';
+import NoticeCard from '../../components/NoticeCard/NoticeCard';
  
 class Notice extends Component{
     static navigationOptions = ({
@@ -29,7 +31,27 @@ constructor(props){
                     iconName="md-notifications"
 
                 />
-                <Text> Notice </Text>
+                {/* <Text> Notice </Text> */}
+                {/* <TouchableOpacity>
+                    <Text>View Notice</Text>
+                </TouchableOpacity> */}
+                <ScrollView>
+                    <NoticeCard 
+                        noticeHeader="Programming Competition"
+                        noticeText="fgkjdfjkghdfjkghj"
+                        noticeDate="10 jun 2018"
+                    />
+
+                    <NoticeCard 
+                        noticeHeader="Programming Competition"
+                        noticeText="fgkjdfjkghdfjkghj"
+                        noticeDate="10 jun 2018"
+                    />
+                    {/* <NoticeCard />
+                    <NoticeCard /> */}
+
+                </ScrollView>
+                <NoticeCard />
              </View>
          )
      }

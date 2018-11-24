@@ -3,11 +3,13 @@ import {View,
     Text,
     StyleSheet,
     TouchableOpacity,
+    ScrollView
 } from 'react-native';
 import Styles from '../../styles';
 import CustomHeader from '../../components/Header/CustomHeader';
 // import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MySubjectCard from '../../components/MySubjectCard/MySubjectCard';
 
  
 class MySubject extends Component{
@@ -19,17 +21,24 @@ class MySubject extends Component{
 
      render(){
         return(
-            <View>
+            <ScrollView>
                 <CustomHeader 
                     title="My Subject"
                     openDrawer={() => this.props.navigation.openDrawer()}
                     iconName="book"
 
                 />
-                <View style={Styles.wrapper}> 
-                    <Text> MySubject vg </Text>
-                </View>
-            </View>
+                {/* <ScrollView >                     
+                    <MySubjectCard />
+                </ScrollView> */}
+                <Text> MySubject vg </Text>
+                <TouchableOpacity
+                    onPress={()=>this.props.navigation.navigate('HomeWork')}
+                >
+                    <Text>Homework</Text>
+                </TouchableOpacity>
+
+            </ScrollView>
 
             
          )

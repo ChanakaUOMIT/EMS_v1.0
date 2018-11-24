@@ -28,7 +28,23 @@ class CustomHeader extends Component{
     } 
 
      render(){
-         const { title, openDrawer, iconName } = this.props;
+         const { title, openDrawer, iconName,leftPress, type,iconNameRight } = this.props;
+         const rightIcon = type==='sub'? 
+            <Icon      
+                name={iconNameRight}
+                style={{fontSize: 23, color: '#ffffff'}} 
+            /> :
+            <Button
+            transparent
+            // onPress={() => this.props.navigation.navigate("DrawerOpen")}
+            // onPress={() => this.props.navigation.openDrawer()}
+            onPress={openDrawer}
+            // onPress={() => navigation.openDrawer()}>
+
+            >
+            <Icon name="menu" />
+        </Button>
+
         return(
             <View> 
                  <Header  style={{ backgroundColor: colors.greenPrimary }}
@@ -47,6 +63,7 @@ class CustomHeader extends Component{
                         {/* <Button> */}
                             <Icon                            
                                 // name="md-notifications"
+                                onPress={leftPress}
                                 name={iconName}
                                 style={{fontSize: 23, color: '#ffffff'}} 
                             />
@@ -56,19 +73,13 @@ class CustomHeader extends Component{
                         <Title>{title}</Title>
                     </Body>
                     <Right>
-                        {/* <Button transparent>
-                            <Icon name='arrow-back' />
-                        </Button> */}
-                        <Button
+                        {rightIcon}
+                        {/* <Button
                             transparent
-                            // onPress={() => this.props.navigation.navigate("DrawerOpen")}
-                            // onPress={() => this.props.navigation.openDrawer()}
                             onPress={openDrawer}
-                            // onPress={() => navigation.openDrawer()}>
-
                             >
                             <Icon name="menu" />
-                        </Button>
+                        </Button> */}
                     </Right>
                 </Header>
              </View>
@@ -82,6 +93,9 @@ CustomHeader.propsTypes={
     title:PropTypes.string,
     openDrawer: PropTypes.func.isRequired,
     iconName:PropTypes.string,
+    leftPress:PropTypes.func,
+    type:PropTypes.string,
+    iconNameRight:PropTypes.string
 }
 
 

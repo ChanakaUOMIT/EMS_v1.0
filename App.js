@@ -12,6 +12,8 @@ import { createStackNavigator } from 'react-navigation';
 import DrawerNavigation from './src/navigations/DrawerNavigation';
 import LandingTemplate from './src/screens/Template/LandingTemplate';
 import Login from './src/authScreen/Login/Login';
+import HomeWork from './src/screens/MySubject/HomeWork/HomeWork';
+import SideDrawer from './src/components/SideDrawer/SideDrawer';
 
 export default class App extends Component{
   render() {
@@ -33,6 +35,14 @@ const AppStackNavigator = createStackNavigator({
   DrawerNavigation:{
     screen: DrawerNavigation
   },
+
+  HomeWork:{
+    screen:HomeWork
+  },
+
+  SideDrawer:{
+    screen:SideDrawer
+  }
 
   // LandingTemplate:{
   //   screen:LandingTemplate
