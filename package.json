@@ -12,6 +12,7 @@
     "native-base": "^2.8.1",
     "react": "16.5.0",
     "react-native": "0.57.0",
+    "react-native-calendars": "^1.21.0",
     "react-native-elements": "^0.19.1",
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^2.18.2"

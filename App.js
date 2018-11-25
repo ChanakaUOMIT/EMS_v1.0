@@ -14,6 +14,7 @@ import LandingTemplate from './src/screens/Template/LandingTemplate';
 import Login from './src/authScreen/Login/Login';
 import HomeWork from './src/screens/MySubject/HomeWork/HomeWork';
 import SideDrawer from './src/components/SideDrawer/SideDrawer';
+import CalendersList from './src/components/Calender/CalendersList';
 
 export default class App extends Component{
   render() {
@@ -32,16 +33,20 @@ const AppStackNavigator = createStackNavigator({
   //   screen:Login
   // },
 
-  DrawerNavigation:{
-    screen: DrawerNavigation
-  },
+  // DrawerNavigation:{
+  //   screen: DrawerNavigation
+  // },
 
-  HomeWork:{
-    screen:HomeWork
-  },
+  // HomeWork:{
+  //   screen:HomeWork
+  // },
 
-  SideDrawer:{
-    screen:SideDrawer
+  // SideDrawer:{
+  //   screen:SideDrawer
+  // },
+
+  Calender:{
+    screen:CalendersList
   }
 
   // LandingTemplate:{
