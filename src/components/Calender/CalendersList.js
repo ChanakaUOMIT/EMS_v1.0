@@ -10,6 +10,15 @@ import {CalendarList} from 'react-native-calendars';
 class CalendersList extends Component{
 constructor(props){
     super(props);
+    state={
+        data:[
+            {
+                id:1,
+                date:'2018-11-20',
+                
+            }
+        ]
+    }
 
 } 
      render(){
@@ -23,117 +32,31 @@ constructor(props){
                     futureScrollRange={24}       
                     markingType={'custom'}
                     markedDates={{
-
-                        '2018-11-26': {
-                            customStyles: {
-                                container: {
-                                backgroundColor: 'white',
-                                elevation: 2
-                                },
-                                text: {
-                                    color: 'blue',
-                                },
-                            }
-                        },
-
-                      '2018-11-08': {selected: true},
-
                         '2018-11-09': {
                             customStyles: {
                                 container: {
-                                backgroundColor: 'red',
-                                elevation: 4,
+                                    backgroundColor: 'red',
+                                    elevation: 4,
                                 },
                                 text: {
                                     color: 'white',
                                 },
                             }
-                        },
-                        
-                        '2018-11-10': {disabled: true},
-                        
+                        },                    
+
                         '2018-11-14': {
-                        customStyles: {
-                            container: {
-                            backgroundColor: 'green',
-                            },
-                            text: {
-                            color: 'white',
-                            },
-                        },
-                        },
-                        /*
-                        '2018-03-15': {
-                        customStyles: {
-                            container: {
-                            backgroundColor: 'black',
-                            elevation: 2
-                            },
-                            text: {
-                            color: 'yellow',
-                            },
-                        }
-                        },
-                        '2018-03-20': {
-                        customStyles: {
-                            container: {
-                            backgroundColor: 'pink',
-                            elevation: 4,
-                            },
-                            text: {
-                            color: 'blue',
-                            },
-                        }
-                        },
-                        '2018-03-21': {disabled: true},
-                        '2018-03-28': {
-                        customStyles: {
-                            container: {
-                            backgroundColor: 'green',
-                            },
-                            text: {
-                            color: 'black',
-                            fontWeight: 'bold'
+                            customStyles: {
+                                container: {
+                                    backgroundColor: 'green',
+                                },
+
+                                text: {
+                                    color: 'white',
+                                },
                             },
                         },
-                        },
-                        '2018-03-29': {
-                        customStyles: {
-                            container: {
-                            backgroundColor: 'white',
-                            elevation: 2
-                            },
-                            text: {
-                            color: 'blue',
-                            },
-                        }
-                        },
-                        '2018-03-30': {
-                        customStyles: {
-                            container: {
-                            backgroundColor: 'violet',
-                            elevation: 4,
-                            borderColor: 'red',
-                            borderWidth: 5,
-                            },
-                            text: {
-                            marginTop: 3,
-                            fontSize: 11,
-                            color: 'yellow',
-                            },
-                        }
-                        },
-                        '2018-03-31': {
-                        customStyles: {
-                            container: {
-                            backgroundColor: 'green',
-                            borderRadius: 0,
-                            },
-                            text: {
-                            color: 'white',
-                            },
-                        },
-                        }*/}}
+                       }
+                    }
      
                 />
              </View>

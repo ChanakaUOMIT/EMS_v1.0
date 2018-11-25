@@ -8,6 +8,11 @@ export default StyleSheet.create({
         justifyContent: 'center',
         marginTop:25
     },
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
     headerButton: {
         height: 44,
         width: 44,

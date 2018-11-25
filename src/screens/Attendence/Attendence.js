@@ -5,6 +5,7 @@ import {View,
     TouchableOpacity,
 } from 'react-native';
 import CustomHeader from '../../components/Header/CustomHeader';
+import CalendersList from '../../components/Calender/CalendersList';
  
 class Attendence extends Component{
     static navigationOptions = ({
@@ -22,9 +23,9 @@ constructor(props){
                     title="Attendence"
                     openDrawer={() => this.props.navigation.openDrawer()}
                     iconName="md-checkmark-circle"
-
                 />
                 <Text> Attendence </Text>
+                <CalendersList />
              </View>
          )
      }

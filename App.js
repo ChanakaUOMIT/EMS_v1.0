@@ -15,6 +15,9 @@ import Login from './src/authScreen/Login/Login';
 import HomeWork from './src/screens/MySubject/HomeWork/HomeWork';
 import SideDrawer from './src/components/SideDrawer/SideDrawer';
 import CalendersList from './src/components/Calender/CalendersList';
+import Attendence from './src/screens/Attendence/Attendence';
+// import Loginnew from './src/authScreen/Login/Loginnew';
+import LoginEMS from './src/authScreen/Login/LoginEMS';
 
 export default class App extends Component{
   render() {
@@ -32,10 +35,16 @@ const AppStackNavigator = createStackNavigator({
   // Login:{
   //   screen:Login
   // },
+  LoginEMS:{
+    screen:LoginEMS
+  },
+//  Loginnew:{
+//     screen:Loginnew
+//   },
 
-  // DrawerNavigation:{
-  //   screen: DrawerNavigation
-  // },
+  DrawerNavigation:{
+    screen: DrawerNavigation
+  },
 
   // HomeWork:{
   //   screen:HomeWork
@@ -45,8 +54,12 @@ const AppStackNavigator = createStackNavigator({
   //   screen:SideDrawer
   // },
 
-  Calender:{
-    screen:CalendersList
+  // Calender:{
+  //   screen:CalendersList
+  // },
+
+  Attendence:{
+    screen:Attendence
   }
 
   // LandingTemplate:{
