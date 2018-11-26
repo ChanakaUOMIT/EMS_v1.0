@@ -19,7 +19,9 @@ export default class Login extends React.Component {
     this.state = {
       username : '',
       password : '',
+      currentToken:''
     }
+    // this.checkToken();
     this.login();
     // this.getToken();
     // _retrieveData();
@@ -44,6 +46,29 @@ export default class Login extends React.Component {
     }
 
   }*/
+
+//   async checkToken(){
+//     try{
+//       let thistoken=await AsyncStorage.getItem("token");
+//     //   let a=JSON.stringify(thistoken)
+//     //   alert(a)
+//     //   alert(thistoken)
+//       if(thistoken!=null){
+//         // Actions.screen1()
+//         // alert("emplty")
+//         // alert("in check login " +thistoken)
+//     console.log("checktoken try");
+//         get_user_details(thistoken)
+
+//       }
+//     }catch(error){
+//     //   alert("token get error");
+//     console.log("checktoken catch");
+//     this.login();
+
+//     }
+//   }
+
   async setToken(mytoken){
     try{
       await AsyncStorage.setItem("token",mytoken);
@@ -223,6 +248,9 @@ datahandler(data){
     }
     const token=data.access_token;
     this.setToken(data.access_token);
+    // this.state.currentToken=this.setStateawait AsyncStorage.getItem("token");
+    // console.log(" ********* "+this.state.currentToken+" ***** ");
+    // (username) => this.setState({username})
     // _storeData(token);
     // console.log("Token "+token);
     // console.log(data.expires_at);
