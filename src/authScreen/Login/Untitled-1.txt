@@ -7,7 +7,7 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
   AsyncStorage, 
-  Image,
+  Image
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
@@ -21,8 +21,6 @@ export default class Login extends React.Component {
       password : '',
     }
     this.login();
-    this.getToken();
-    // _retrieveData();
   }
 
   //Customersize Navigation
@@ -44,51 +42,6 @@ export default class Login extends React.Component {
     }
 
   }*/
-  async setToken(mytoken){
-    try{
-      await AsyncStorage.setItem("token",mytoken);
-      alert('Token saves asyn');
-      this.getToken();
-    }catch(error){
-      alert("token store error");
-    }
-  }
-
-//   _storeData = async (mytoken) => {
-//     try {
-//       await AsyncStorage.setItem('token', mytoken);
-//       console.log('saved')
-//     } catch (error) {
-//       // Error saving data
-//         alert("token store error");
-//     }
-//   }
-
-  async getToken(){
-    try{
-      let thistoken=await AsyncStorage.getItem("token");
-    //   let a=JSON.stringify(thistoken)
-    //   alert(a)
-    //   alert(thistoken)
-      if(thistoken!=null){
-        // Actions.screen1()
-        // alert("emplty")
-      }
-    }catch(error){
-      alert("token get error");
-    }
-  }
-// _retrieveData = async (token) => {
-//     try {
-//       const value = await AsyncStorage.getItem(token);
-//       if (value !== null) {
-//         // We have data!!
-//         console.log("********** ASy "+value);
-//       }
-//      } catch (error) {
-//        // Error retrieving data
-//      }
-//   }
 
   render() {
     return (
@@ -145,85 +98,10 @@ export default class Login extends React.Component {
   }
 */
 
-datailshandler(details){
-    console.log(details)
-    console.log(details.email)
-    console.log(details.roles)
-    // console.log(details.roles.length)
-    // console.log(details.roles[0])
-    // console.log(details.roles[0].name)
-    // console.log(details.roles[1])
-    //  for(k in details){
-    //     console.log(roles[k].name);
-    //     // console.log(d.k);
-    // }
-    const len= details.roles.length
-    var i;
-    for(i=0 ;i<len;i++){
-        console.log(details.roles[i].name)
-        if(details.roles[i].name === "Super Admin")  {
-            console.log("Hi i am Super admin")
-            break;
-        }      
-    }
-}
-get_user_details(token){
-    console.log("Bearer "+token);
-
-    const details_url='https://ems.aladinlabs.com/api/auth/user';
-    console.log(details_url);  
-
-    try {
-        fetch(details_url,{
-         method:'GET',
-        headers: {
-            'Authorization': 'Bearer '+token,
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-      })
-    //   .then((response)=> console.log(response)) 
-      .then((res) => res.json())
-    // .then((response)=> console.log(response.roles)) 
-
-      .then((response) => {
-        this.datailshandler(response)
-       })
-      .done();
-    } catch (error) {
-        alert('No network Connection Found user details');
-    }
-}
-
 datahandler(data){
     console.log(data);
-    const token=data.access_token;
-    this.setToken(data.access_token);
-    // _storeData(token);
-    // console.log("Token "+token);
-    // console.log(data.expires_at);
-    // console.log(data.token_type);
-
-    this.get_user_details(token);
-/*
-    const details_url='https://ems.aladinlabs.com/api/auth/user';
-    console.log(details_url);      
-    try {
-        fetch(url,{
-         method:'GET',
-        headers: {
-            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjU4YWNjZWViMWY5ZDc5MDc0YTAwNTY3YTQ1ZGYzZTI4Y2E0YWViMWM5MzJmYTlhZTMyYWEyMzEyMjU4MzEwZjJhYWU2N2IyMmEzZWRiYjFiIn0.eyJhdWQiOiIxIiwianRpIjoiNThhY2NlZWIxZjlkNzkwNzRhMDA1NjdhNDVkZjNlMjhjYTRhZWIxYzkzMmZhOWFlMzJhYTIzMTIyNTgzMTBmMmFhZTY3YjIyYTNlZGJiMWIiLCJpYXQiOjE1NDMxNzQ4MDcsIm5iZiI6MTU0MzE3NDgwNywiZXhwIjoxNTc0NzEwODA3LCJzdWIiOiI1MiIsInNjb3BlcyI6W119.BN8xjBHWnA4CSpD-OB2gwkK9rpaft7Giujvptd7UkFwYjBjiJerWLAQGvC1P0HtBP7Fc2ZeA2HKU1TCzRjw83dLyFCP9Ozb4zgGUVo6KjWLXR0TgZEyHiy28Z5xqz_vuBh6PXMcji2sAA-SaDgZOIAtTplUhzCz6jZufJKOTl1HYq2j6oVuuZZcH5s8VVsOgwy91POywvqk01czPr-grWILHUPBPmyCIxRN22JHXGUox05bSiFCbzfEnsANAPn6s3h6dklMKQVnsq2LQ78IOjycL2HJQi3TriAqAVJlAPVXxzNQElOjCQx8yzbO-6lprPc0iZ5hJPJn93njO1Zz5MwyPZe2xIh9mPuWexq8ZLxRQCYK3L3DbYu3Qj36cb8-PD9EKpcZZM3F02emLAetj172hw6CBgvFV_XwQCW_UDRefSNVVzODOh6n-1nCpM5WGwWLm8mLxZk2Yi7SKGt5hLRgD0qcnMLqYpTCNiaRyr8bIrBzMdYVaeiwpbol7yeLLyMALTXV3-lTa9jM51_fh31aTn442j8wdaZlj2bvB2AgeuFBaijUfNivVANaaTqT3oPw8hjXkhPzSnDZ-GjXX4C2uclOyVvttHOwmsphJYdxmTCZUOYmiRvV5O616_qvFQSHJX6rJh91ajr2P9Au4ytJuwKZlgBUpKcZgm2tfMnQ',
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-      })
-    //   .then((response)=> console.log(response)) 
-      .then((response) => response.json())
-      .then((response)=> console.log(response)) 
-      .done();
-    } catch (error) {
-        alert('No network Connection Found user details');
-    }*/
-
-
+    const token=data.access_token
+    console.log(token);
     // let d = data.json();
     // for(k in d){
     //     console.log(k);
@@ -242,19 +120,23 @@ datahandler(data){
       console.log(url);
       
     try {
+       // fetch('http://192.168.43.148:3000/users/authenticate',{
         fetch(url,{
          method:'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
+        //    'Accept':'application/json',
+        //    'Content-Type' : 'application/json',
+          //'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjY1NmIzMGRjZGQzODZiYjA4YmYzOTIzMDRhOGY1ZDNmZjZiNjhmNmM0NTQyNmUwMWQwNmM4NjRlMDdjMjg4ZjQ2MmQ1MTQzNzUyMmJhYjdlIn0.eyJhdWQiOiIxIiwianRpIjoiNjU2YjMwZGNkZDM4NmJiMDhiZjM5MjMwNGE4ZjVkM2ZmNmI2OGY2YzQ1NDI2ZTAxZDA2Yzg2NGUwN2MyODhmNDYyZDUxNDM3NTIyYmFiN2UiLCJpYXQiOjE1NDAxODA1MDIsIm5iZiI6MTU0MDE4MDUwMiwiZXhwIjoxNTcxNzE2NTAyLCJzdWIiOiIiLCJzY29wZXMiOltdfQ.LmqAQ8hRF0N2pEwz9KTRAVqcgQ_cXcythwec7lJFhlTEXlBJGCpIpqZQ8_16iR0suRICwg4s5-f9IzI4YaKZqRMTDxy-XGaNGKzML6yAsV6VX6oZGyBK7U94G5AuAPnBn_2ZgFiw4BVcuoc157wkRuCVnh6zpoKXyDhFlUHFnOOAiEB5f11xpTO7u21-4giTncy43bm6kzPyJhfwaYnFV4caFu0ThwH4eiOB3vYtQC5iCHdcIFFWmV6KuZR_uIkxm9rdLhqjKvxQBqjvlyUN-tHNy1po4RxGsxCkF-UFbr_qOJANSZF1YXo4d-m3EnfGOxPxT_uIkqXRVx_QHNv_DsxxYjn2ux1PVHBQi2nttBCEw-Qpp3QMMPIOooRmxtN9hcncZGqd8jdZh033Lla6Z0TnQjlmJTauszeDRnCF2bhi5xjeomtWJCmAtiG9kYBB2mbdaWn1hF4VOiuR95QJCD7iID-Af-6BNB3ziLmZ21KexbqFIdfRCqen1xvlpsoxWhgKQFKhnikeIYHAcAxo1Kt9ByNDkHpOhkPuP-YWl_rG6FlGDuuQj21kaAlZPV3T9BPRJV4ALoYOzZdtVqX6awkoyAaKwQ10JYAD-1J3y1ySh9NuSw4GZiDo0J3XMe1qN-kk2PQrtA6xIfYgI8Aw5hM4wH0kEJjbPo59a_pUMOE',
         },
         body:JSON.stringify({
         //   email : this.state.username,
         //   password : this.state.password,
         //   remember_me : true
             email : "bhanuka2017@gmail.com",
-            password : "abc123",
-            remember_me : true
+          password : "abc123",
+          remember_me : true
         })
       })
     //   .then((response)=> console.log(response)) 
@@ -262,6 +144,10 @@ datahandler(data){
       .then((responseJson) => {
             this.datahandler(responseJson)
            })
+      //.then((response)=> console.log(response)) 
+    //   .then((res)=> data=res)
+    //   .then(()=> console.log(data)) 
+      //.then((response)=> console.log(response.access_token)) 
       /*
       .then((response) => {
           if(response.user){

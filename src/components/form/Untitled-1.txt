@@ -1,0 +1,34 @@
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+} from 'react-native';
+ 
+class Notification  extends Component{
+constructor(props){
+    super(props);
+
+} 
+     render(){
+        return(
+            <View style={styles.container}> 
+                <Text> Notification  </Text>
+             </View>
+         )
+     }
+}
+ 
+export default Notification ;
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        },
+});

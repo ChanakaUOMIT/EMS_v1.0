@@ -7,19 +7,19 @@ import {View,
     StyleSheet,
     TouchableOpacity,
     KeyboardAvoidingView
-} from 'react-native';
+} from 'react-native'; 
 
 //Redux case
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 // import { ActionCreators } from '../redux/actions';
 
-import InputField from '../components/form/InputField';
-import NextArrorButton from '../components/button/NextArrorButton';
-import Notification from '../components/notification/Notification';
-import colors from '../styles/colors';
-import Loader from '../components/form/Loader';
-import NavBarButton from '../components/button/NavBarButton';
+import InputField from '../../components/form/InputField';
+import NextArrorButton from '../../components/button/NextArrorButton';
+import Notification from '../../components/notification/Notification';
+import colors from '../../styles/colors';
+import Loader from '../../components/form/Loader';
+import NavBarButton from '../../components/button/NavBarButton';
 
 // import Drawer from '../Drawer';
  
@@ -58,7 +58,7 @@ class Loginnew extends Component{
             if(this.props.logIn(emailAddress, password)){
                 this.setState({ formValid: true, loadingVisible: false });
                 // alert('Next Putton Pressed');
-                this.props.navigation.navigate("Drawer");
+                this.props.navigation.navigate("DrawerNavigation");
 
             }else{
                 this.setState({ formValid: false, loadingVisible: false });
@@ -178,7 +178,7 @@ class Loginnew extends Component{
                 </View>
 
                 <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("Drawer")}
+                     onPress={() => this.props.navigation.navigate("DrawerNavigation")}
                 >
                     <Text>Hfsdf</Text>
                 </TouchableOpacity>
@@ -222,7 +222,9 @@ const mapDispatchToProps=(dispatch)=>{
     return bindActionCreators(ActionCreators, dispatch);
 };
  
-export default connect(mapStateToProps, mapDispatchToProps)(Loginnew);
+// export default connect(mapStateToProps, mapDispatchToProps)(Loginnew);
+export default Loginnew;
+
 
 
 const styles = StyleSheet.create({
