@@ -14,6 +14,12 @@ constructor(props){
         return(
             <View style={styles.container}> 
                 <Text> Student </Text>
+
+                <TouchableOpacity
+                    onPress={()=> this.props.navigation.navigate('Logout')}
+                >
+                    <Text>Log Out</Text>
+                </TouchableOpacity>
              </View>
          )
      }

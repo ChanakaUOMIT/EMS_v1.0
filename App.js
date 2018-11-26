@@ -21,6 +21,7 @@ import LoginEMS from './src/authScreen/Login/LoginEMS';
 import Student from './src/landingPages/student/Student';
 import Parent from './src/landingPages/parent/Parent';
 import Teacher from './src/landingPages/teacher/Teacher';
+import Logout from './src/authScreen/Logout/Logout';
 
 export default class App extends Component{
   render() {
@@ -55,6 +56,10 @@ const AppStackNavigator = createStackNavigator({
   
   Teacher:{
     screen:Teacher
+  },
+
+  Logout:{
+    screen:Logout
   },
 
   DrawerNavigation:{
