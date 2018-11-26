@@ -18,6 +18,9 @@ import CalendersList from './src/components/Calender/CalendersList';
 import Attendence from './src/screens/Attendence/Attendence';
 // import Loginnew from './src/authScreen/Login/Loginnew';
 import LoginEMS from './src/authScreen/Login/LoginEMS';
+import Student from './src/landingPages/student/Student';
+import Parent from './src/landingPages/parent/Parent';
+import Teacher from './src/landingPages/teacher/Teacher';
 
 export default class App extends Component{
   render() {
@@ -41,6 +44,18 @@ const AppStackNavigator = createStackNavigator({
 //  Loginnew:{
 //     screen:Loginnew
 //   },
+
+  Student:{
+    screen:Student
+  },
+  
+  Parent:{
+    screen:Parent
+  },
+  
+  Teacher:{
+    screen:Teacher
+  },
 
   DrawerNavigation:{
     screen: DrawerNavigation

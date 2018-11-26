@@ -21,7 +21,7 @@ export default class Login extends React.Component {
       password : '',
     }
     this.login();
-    this.getToken();
+    // this.getToken();
     // _retrieveData();
   }
 
@@ -47,7 +47,7 @@ export default class Login extends React.Component {
   async setToken(mytoken){
     try{
       await AsyncStorage.setItem("token",mytoken);
-      alert('Token saves asyn');
+    //   alert('Token saves asyn');
       this.getToken();
     }catch(error){
       alert("token store error");
@@ -158,13 +158,32 @@ datailshandler(details){
     //     // console.log(d.k);
     // }
     const len= details.roles.length
+
+    if(len === 'undefined'){
+        console.log("*************** This is undefined ***************")
+    }
     var i;
     for(i=0 ;i<len;i++){
         console.log(details.roles[i].name)
-        if(details.roles[i].name === "Super Admin")  {
-            console.log("Hi i am Super admin")
+        if(details.roles[i].name === "Student")  {
+            console.log("Hi i am Student");
+            this.props.navigation.navigate('Student');
             break;
-        }      
+        }  
+        else if(details.roles[i].name === "Parent")  {
+            console.log("Hi i am Parent");
+            // this.props.navigation.navigate('Parent');
+            this.props.navigation.navigate('Parent');
+            break;
+        }  
+        else if(details.roles[i].name === "Teacher")  {
+            console.log("Hi i am Teacher");
+            this.props.navigation.navigate('Teacher');
+            break;
+        }
+        // else{
+        //     alert("Check ur email n password")
+        // }      
     }
 }
 get_user_details(token){
@@ -196,6 +215,12 @@ get_user_details(token){
 
 datahandler(data){
     console.log(data);
+    console.log(data.message);
+    if(data.message === 'Unauthorized'){
+        console.log('Check ur username n email bcoz Unauthorized')
+        alert("Check ur username n email bcoz Unauthorized")
+        return
+    }
     const token=data.access_token;
     this.setToken(data.access_token);
     // _storeData(token);
@@ -252,8 +277,11 @@ datahandler(data){
         //   email : this.state.username,
         //   password : this.state.password,
         //   remember_me : true
-            email : "bhanuka2017@gmail.com",
-            password : "abc123",
+            // email : "bhanuka2017@gmail.com",
+            // password : "abc123",
+            // remember_me : true
+            email : "student@ems.com",
+            password : "123456",
             remember_me : true
         })
       })
