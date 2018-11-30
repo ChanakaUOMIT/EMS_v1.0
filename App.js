@@ -22,6 +22,7 @@ import Student from './src/landingPages/student/Student';
 import Parent from './src/landingPages/parent/Parent';
 import Teacher from './src/landingPages/teacher/Teacher';
 import Logout from './src/authScreen/Logout/Logout';
+import GeoLocation from './src/components/GeoLocation/GeoLocation';
 
 export default class App extends Component{
   render() {
@@ -39,12 +40,24 @@ const AppStackNavigator = createStackNavigator({
   // Login:{
   //   screen:Login
   // },
+
+  // DrawerNavigation:{
+  //   screen: DrawerNavigation
+  // },
+  // GeoLocation:{
+  //   screen:GeoLocation
+  // },
+
   LoginEMS:{
     screen:LoginEMS
   },
 //  Loginnew:{
 //     screen:Loginnew
 //   },
+
+  // DrawerNavigation:{
+  //   screen: DrawerNavigation
+  // },
 
   Student:{
     screen:Student
@@ -62,29 +75,32 @@ const AppStackNavigator = createStackNavigator({
     screen:Logout
   },
 
-  DrawerNavigation:{
-    screen: DrawerNavigation
+  // DrawerNavigation:{
+  //   screen: DrawerNavigation
+  // },
+
+  HomeWork:{
+    screen:HomeWork
   },
 
-  // HomeWork:{
-  //   screen:HomeWork
-  // },
+  SideDrawer:{
+    screen:SideDrawer
+  },
 
-  // SideDrawer:{
-  //   screen:SideDrawer
-  // },
-
-  // Calender:{
-  //   screen:CalendersList
-  // },
+  Calender:{
+    screen:CalendersList
+  },
 
   Attendence:{
     screen:Attendence
-  }
+  },
 
-  // LandingTemplate:{
-  //   screen:LandingTemplate
-  // }
+  LandingTemplate:{
+    screen:LandingTemplate
+  },
+  GeoLocation:{
+    screen:GeoLocation
+  },
 
 },
     navigationOptions={

@@ -23,7 +23,7 @@ export default class Login extends React.Component {
     }
     // this.checkToken();
     this.login();
-    // this.getToken();
+    this.getToken();
     // _retrieveData();
   }
 
@@ -37,14 +37,11 @@ export default class Login extends React.Component {
       console.log('log');
     this._loadInitialState().done();
   }
-
   _loadInitialState = async () => {
-
     var value =await AsyncStorage.getItem('token_id');
     if (value !== null){
       this.props.navigation.navigate('profile');
     }
-
   }*/
 
 //   async checkToken(){
@@ -72,8 +69,9 @@ export default class Login extends React.Component {
   async setToken(mytoken){
     try{
       await AsyncStorage.setItem("token",mytoken);
-    //   alert('Token saves asyn');
-      this.getToken();
+      // await AsyncStorage.setItem(key,mytoken);
+      alert('Token saves asyn');
+      // this.getToken();
     }catch(error){
       alert("token store error");
     }
@@ -94,10 +92,12 @@ export default class Login extends React.Component {
       let thistoken=await AsyncStorage.getItem("token");
     //   let a=JSON.stringify(thistoken)
     //   alert(a)
-    //   alert(thistoken)
+      // alert(thistoken)
       if(thistoken!=null){
         // Actions.screen1()
         // alert("emplty")
+        // this.get_user_details(thistoken)
+
       }
     }catch(error){
       alert("token get error");
@@ -153,7 +153,6 @@ export default class Login extends React.Component {
                 onPress={() =>this.props.navigation.navigate('student')} >                    
                         <Text style={styles.txt}>skipp >></Text>     
             </TouchableOpacity>
-
             <TouchableOpacity 
                 //style={styles.btn} 
                 onPress={() =>this.props.navigation.navigate('parent')} >                    
@@ -164,7 +163,6 @@ export default class Login extends React.Component {
       
     );
   }/*
-
   register = () =>{
     this.props.navigation.navigate('Register');
   }
@@ -174,7 +172,8 @@ datailshandler(details){
     console.log(details)
     console.log(details.email)
     console.log(details.roles)
-    // console.log(details.roles.length)
+    // this.setToken('roles',details.roles);
+    console.log(details.roles.length)
     // console.log(details.roles[0])
     // console.log(details.roles[0].name)
     // console.log(details.roles[1])
@@ -183,9 +182,13 @@ datailshandler(details){
     //     // console.log(d.k);
     // }
     const len= details.roles.length
+    // const len;
 
-    if(len === 'undefined'){
+    if(details.roles.length === 'undefined'){
         console.log("*************** This is undefined ***************")
+    }else{
+      // len= details.roles.length
+
     }
     var i;
     for(i=0 ;i<len;i++){
@@ -246,8 +249,10 @@ datahandler(data){
         alert("Check ur username n email bcoz Unauthorized")
         return
     }
+    // alert("******** "+data.access_token);
     const token=data.access_token;
-    this.setToken(data.access_token);
+
+    this.setToken(token);
     // this.state.currentToken=this.setStateawait AsyncStorage.getItem("token");
     // console.log(" ********* "+this.state.currentToken+" ***** ");
     // (username) => this.setState({username})
@@ -294,7 +299,7 @@ datahandler(data){
       url = 'https://ems.aladinlabs.com/api/auth/login';
       console.log(url);
       
-    try {
+    // try {
         fetch(url,{
          method:'POST',
         headers: {
@@ -308,7 +313,7 @@ datahandler(data){
             // email : "bhanuka2017@gmail.com",
             // password : "abc123",
             // remember_me : true
-            email : "student@ems.com",
+            email : "student1@ems.com",
             password : "123456",
             remember_me : true
         })
@@ -339,10 +344,11 @@ datahandler(data){
           alert(response.error);
         }
       })*/
-      .done();
-    } catch (error) {
-        alert('No network Connection Found');
-    }
+      // .done();
+    // } 
+    .catch ((error) => {
+        alert('No network Connection Found '+error);
+    });
     
   }
 /*

@@ -10,6 +10,7 @@ import {View,
 class Logout extends Component{
     constructor(props){
         super(props);
+        // this.removeToken();
         this.getToken();
         this.getAns();
     } 
@@ -21,7 +22,8 @@ class Logout extends Component{
 
       async removeToken(){
         try{
-            let thistoken=await AsyncStorage.removeItem("token");
+            // let thistoken=await AsyncStorage.removeItem("token");
+            await AsyncStorage.removeItem("token");
             alert("You are sucessfuly loggedout");
             // Actions.login();
           this.props.navigation.navigate('LoginEMS');
@@ -35,14 +37,17 @@ class Logout extends Component{
     
       handletoken=(text)=>{
         this.setState({token:text})
+        // console.log("Token in log out "+this.state.token)
       }
 
     async getToken(){
         try{
           let thistoken=await AsyncStorage.getItem("token");
          // let token=JSON.stringify(thistoken)
+            console.log("This token  "+thistoken)
+            // alert("This token fhf  "+thistoken)
 
-          //alert(a)
+        //   alert(a)
           if(thistoken!=null){
             this.handletoken(thistoken);
           }else{
@@ -62,7 +67,8 @@ class Logout extends Component{
             'do you want to logout?',
             [
             {text:'Yes', onPress:()=>this.requestlogout()},
-            {text:'No', onPress:()=>this.props.navigation.pop()}
+            // {text:'No', onPress:()=>this.props.navigation.pop()}
+            {text:'No', onPress:()=>this.props.navigation.navigate('Student')}
             ],
             { cancelable: false}
         )
@@ -86,7 +92,7 @@ class Logout extends Component{
                   this.removeToken()
                   
                 } else {
-                    alert(res.msg)
+                    alert(res.msg+" else")
                 }
             })
             .done();

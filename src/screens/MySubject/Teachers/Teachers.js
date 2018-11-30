@@ -5,7 +5,7 @@ import {View,
     TouchableOpacity,
 } from 'react-native';
  
-class Teacher extends Component{
+class Teachers extends Component{
 constructor(props){
     super(props);
 
@@ -13,31 +13,13 @@ constructor(props){
      render(){
         return(
             <View style={styles.container}> 
-                <Text> Teacher </Text>
+                <Text> Teachers </Text>
              </View>
          )
      }
 }
-
-// const AppStackNavigator = createStackNavigator({  
-//     DrawerNavigation:{
-//         screen: DrawerNavigation
-//       },
-
-//     HomeWork:{
-//       screen:HomeWork
-//     },
-
-//     Teachers:{
-//         screen:Teacher
-//     }
-  
-//   },
-//       navigationOptions={
-//         headerMode:'none'
-//   })
  
-export default Teacher;
+export default Teachers;
 
 
 const styles = StyleSheet.create({

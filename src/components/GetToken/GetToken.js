@@ -5,39 +5,36 @@ import {View,
     TouchableOpacity,
 } from 'react-native';
  
-class Teacher extends Component{
+class GetToken extends Component{
 constructor(props){
     super(props);
+    getToken();
 
 } 
+
+async getToken(){
+    try{
+      let thistoken=await AsyncStorage.getItem("token");
+     let token=JSON.stringify(thistoken)
+
+      alert(token)
+
+      console.log(thistoken);
+    }catch(error){
+      alert(error);
+      Actions.login();
+    }
+  }
      render(){
         return(
             <View style={styles.container}> 
-                <Text> Teacher </Text>
+                <Text> GetToken </Text>
              </View>
          )
      }
 }
-
-// const AppStackNavigator = createStackNavigator({  
-//     DrawerNavigation:{
-//         screen: DrawerNavigation
-//       },
-
-//     HomeWork:{
-//       screen:HomeWork
-//     },
-
-//     Teachers:{
-//         screen:Teacher
-//     }
-  
-//   },
-//       navigationOptions={
-//         headerMode:'none'
-//   })
  
-export default Teacher;
+export default GetToken;
 
 
 const styles = StyleSheet.create({
