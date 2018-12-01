@@ -36,6 +36,9 @@ class GeoLocation extends Component{
 
       const url = 'https://ems.aladinlabs.com/api/location';
       console.log(url);
+      console.log(this.state.timestamp);
+      var timestamp_S= (this.state.timestamp/1000);
+      console.log(timestamp_S);
       
     // try {
         fetch(url,{
@@ -48,10 +51,10 @@ class GeoLocation extends Component{
         body:JSON.stringify({
           latitude : this.state.latitude,
           longitude : this.state.longitude,
-          timestamp : this.state.timestamp,
+          timestamp : timestamp_S,
         })
       })
-      .then((response)=> console.log(response)) 
+      .then((response)=> console.log(response))
       // .then((response) => response.json())
       // .then((responseJson) => {
       //       this.datahandler(responseJson)
